@@ -8,3 +8,7 @@ feature for people to like and rate food that they have tried, add comments, etc
 I like the idea of recipes having "ingredient tags" so they are easy to find
     the app could be able to match ingredients to the tags of the recipes for the best possible solutions
     should be able to suggest based on plans for meal so people can get ingredients based on something cheap they might be inerested in 
+
+create AR that can help people even walk through the recipes and the way the ingredients go together
+    possible issue: people might not want to hold their phone to while making the food
+    
