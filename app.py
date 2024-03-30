@@ -1,3 +1,4 @@
+import openai
 from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__) #create a web  server using the Flask framework.
@@ -25,6 +26,25 @@ def get_recipes():
         })
 
     return jsonify(recipes_info)
+
+# Replace "your_openai_api_key" with your actual OpenAI API key
+openai.api_key = 'your_openai_api_key'
+
+@app.route('/process_ingredients', methods=['POST'])
+def process_ingredients():
+    user_input = request.json.get('ingredients')
+    response = openai.Completion.create(
+      engine="text-davinci-003", # Check for the latest and most suitable model
+      prompt=f"Extract a list of ingredients from the following text: {user_input}",
+      temperature=0.5,
+      max_tokens=100,
+      top_p=1.0,
+      frequency_penalty=0.0,
+      presence_penalty=0.0
+    )
+    # Assuming the AI response is structured as a comma-separated list
+    ingredients = response.choices[0].text.strip().split(',')
+    return jsonify(ingredients)
 
 if __name__ == "__main__":
     app.run(debug=True)
