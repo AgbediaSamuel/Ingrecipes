@@ -1,0 +1,4 @@
+feature for people to bring ingredients together to make food together 
+feature for people to like and rate food that they have tried, add comments, etc
+
+I like the idea of recipes having "ingredient tags" so they are easy to find
