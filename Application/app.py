@@ -42,6 +42,15 @@ class User(UserMixin, db.Model):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
+class SavedRecipe(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    recipe_title = db.Column(db.String(200), nullable=False)
+    recipe_image = db.Column(db.String(300))
+    recipe_url = db.Column(db.String(300), nullable=False)
+    user = db.relationship('User', backref=db.backref('saved_recipes', lazy=True))
+
+
 # User loader callback for Flask-Login
 @login_manager.user_loader
 def load_user(user_id):
@@ -61,7 +70,7 @@ def register():
         password = request.form.get('password')
 
         if User.query.filter_by(email=email).first():
-            flash('Email address already exists')
+            flash('Email address already exists', 'error')  # Category 'error' for styling
             return redirect(url_for('register'))
 
         new_user = User(full_name=full_name, email=email)
@@ -69,9 +78,11 @@ def register():
         db.session.add(new_user)
         db.session.commit()
 
+        flash('Registration successful! Please log in.', 'success')  # Category 'success' for styling
         return redirect(url_for('login'))
+    
     # Note: Replace 'Registration Form Here' with your actual registration form template
-    return render_template_string('Registration Form Here')
+    return render_template('register.html')
 
 # Login route
 @app.route('/login', methods=['GET', 'POST'])
@@ -140,6 +151,39 @@ def get_recipes():
     } for recipe in recipes.get('hits', [])]
 
     return jsonify(recipes_info)
+
+# Save a recipe route
+@app.route('/save_recipe', methods=['POST'])
+@login_required
+def save_recipe():
+    recipe_title = request.form.get('recipe_title')
+    recipe_image = request.form.get('recipe_image')
+    recipe_url = request.form.get('recipe_url')
+    
+    # Check if the recipe is already saved by the user to prevent duplicates
+    existing_recipe = SavedRecipe.query.filter_by(user_id=current_user.id, recipe_url=recipe_url).first()
+    if existing_recipe:
+        flash('You have already saved this recipe.')
+        return redirect(url_for('index'))
+
+    new_saved_recipe = SavedRecipe(
+        user_id=current_user.id,
+        recipe_title=recipe_title,
+        recipe_image=recipe_image,
+        recipe_url=recipe_url
+    )
+    db.session.add(new_saved_recipe)
+    db.session.commit()
+    flash('Recipe saved successfully!')
+    return redirect(url_for('index'))
+
+# View saved recipes route
+@app.route('/saved_recipes')
+@login_required
+def saved_recipes():
+    user_saved_recipes = current_user.saved_recipes
+    return render_template_string('saved_recipes.html', recipes=user_saved_recipes)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

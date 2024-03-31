@@ -1,0 +1,149 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-image: url(body-background.jpg);
+    background-size: cover;
+}
+.container {
+    display: flex;
+    border: 7px solid rgb(171, 110, 64);
+    border-radius: 50px;
+    justify-content: space-between;
+    width: 90%;
+    height: 88vh;
+    padding: 1rem;
+    margin: 0 auto;
+    margin-top: 1rem;
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.5);
+    font-family: "Fjalla One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.login {
+    padding-top: 3rem;
+    margin-right: 5rem;
+}
+.login h1 {
+    font-size: 6rem;
+    width: min-content;
+    text-align: center;
+    margin-bottom: 5rem;
+    margin-left: 1rem;
+    color: #82505c;
+}
+.inputland {
+    display: flex;
+    flex-direction: column;
+    height: 20%;
+    margin-left: 3rem;
+}
+.inputland input {
+    border: none;
+    border-bottom: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    height: 25px;
+    padding-left: 0.3rem;
+    padding-top: 2px;
+    font-family: "Fjalla One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    width: 20rem;
+}
+.inputland input::placeholder {
+    font-size: 15px;
+    font-family: "Fjalla One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: rgb(64, 62, 62);
+}
+.inputland input:first-child {
+    margin-bottom: 1.5rem;
+}
+.remme_forpass {
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+    margin-top: -30px;
+    margin-bottom: 20px;
+    margin-left: 3.5rem;
+}
+.remme_forpass div {
+    font-size: 13px;
+}
+.remme input {
+    position: relative;
+    top: 1px;
+}
+.login {
+    margin-left: -2rem;
+}
+.login button {
+    width: 12rem;
+    margin-left: 6.5rem;
+    padding: 4px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 4rem;
+    font-size: 1rem;
+    font-family: "Fjalla One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    background-color: #82505c;
+    border: none;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.login button:hover {
+    background-color: white;
+    color: #82505c;
+}
+.noacct_signup {
+    width: 16rem;
+    display: flex;
+    margin-left: 6.5rem;
+}
+input:focus {
+    outline: none;
+}
+.logo img {
+    width: 8rem;
+}
+
+#signin_h1 {
+    width: 25rem;
+    margin-bottom: -1px;
+}
+#login {
+    margin-left: -5.3rem;
+}
+#login_h1 {
+    margin-left: 2.2rem;
+}
+#phone_no {
+    margin-top: 1.5rem;
+}
+#password {
+    margin-top: 1.5rem;
+}
+.remme_forpass2 {
+    margin-top: 2.5rem;
+}
+.inputland2 {
+    margin-top: 2rem;
+}
+/* input::placeholder::after {
+    content: '*';
+    color: red;
+    margin-left: 2px;
+} */
+input::placeholder::after {
+    content: '*'; /* Insert asterisk */
+    color: red; /* Make asterisk red */
+    margin-left: 2px; /* Adjust spacing between placeholder text and asterisk */
+}

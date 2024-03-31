@@ -1,0 +1,67 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-image: url(IMG_8286.jpeg);
+    background-size: cover;
+}
+.main_container {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+.container {
+    backdrop-filter: blur(10px);
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+}
+.wel_msg h1 {
+    font-size: 4rem;
+    font-family: "Fjalla One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-top: 11rem;
+    color: #53202C;
+}
+p {
+    
+}
+p button {
+    text-decoration: none;
+    color: #82505C;
+    font-size: 1.7rem;
+    font-family: "Fjalla One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    border: 2px solid white;
+    background-color: rgb(198, 176, 180);
+    padding-top: 1.7rem;
+    padding-bottom: 1.7rem;
+    width: 17rem;
+    border-radius: 40px;
+    cursor: pointer;
+    stroke: 3px solid black;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+p button:hover {
+    color: rgb(198, 176, 180);
+    background-color: #82505C;
+}
+.find_recipe {
+    margin-top: 2rem;
+}
+.saved_recipe {
+    margin-top: 2rem;
+}
+.logo img {
+    width: 8rem;
+    position: relative;
+    left: -40rem;
+}
+.wel_msg {
+    margin-top: -10rem;
+}
