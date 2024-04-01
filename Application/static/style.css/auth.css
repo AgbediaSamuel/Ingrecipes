@@ -3,7 +3,7 @@
     margin: 0;
 }
 body {
-    background-image: url(body-background.jpg);
+    background-image: url('../images/body-background.jpg');
     background-size: cover;
 }
 .container {
@@ -24,7 +24,11 @@ body {
 }
 .login {
     padding-top: 3rem;
-    margin-right: 5rem;
+    position: relative;
+    left: 33rem;
+}
+.login2 {
+    left: 0.1rem;
 }
 .login h1 {
     font-size: 6rem;

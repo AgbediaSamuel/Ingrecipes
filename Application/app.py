@@ -98,7 +98,7 @@ def login():
         else:
             flash('Invalid email or password')
     # Note: Replace 'Login Form Here' with your actual login form template
-    return render_template_string('Login Form Here')
+    return render_template('login.html')
 
 # Logout route
 @app.route('/logout')
