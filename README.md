@@ -1,5 +1,16 @@
-# club19-hacking
+#LMKook
+Welcome to LMKook, a cutting-edge web application designed to inspire your culinary journey and transform the way you cook at home. Built with the modern home cook in mind, LMKook leverages advanced technology to help you discover new recipes based on the ingredients you already have in your kitchen. Say goodbye to food waste and hello to delicious, creative meals that cater to your taste and dietary preferences.
 
-The app is meant to help college students who do not know easy and budget-friendly recipes for their ingredients, such as canned food. For instance, if I have tomato paste, half a cabbage, and a can of beans, the AI would suggest an appropriate existing recipe from our database of recipes.
+Features
+Ingredient-Based Recipe Discovery: Enter the ingredients you have, and LMKook will suggest a variety of recipes you can cook. Powered by OpenAI's GPT-4, our ingredient analysis tool understands natural language inputs, making it easier than ever to find the perfect recipe.
+Personalized User Experience: With Flask-Login for secure authentication, users can save their favorite recipes, create personalized meal plans, and access their cooking history, all in one place.
+Real-Time Recipe Database: Access a wide range of recipes from around the world through our integration with the Edamam Recipe Search API. Whether you're looking for gluten-free options, vegan dishes, or something to satisfy your sweet tooth, LMKook has you covered.
+Responsive and Intuitive Design: Our application is designed for ease of use, with a responsive interface that works on desktop and mobile devices. Enjoy a seamless cooking experience with HTML, CSS, and JavaScript technologies.
+Technologies Used
+Backend: Python, Flask, SQLAlchemy
+Frontend: HTML, CSS, JavaScript
+APIs: OpenAI's GPT-3.5, Edamam Recipe Search API
+Authentication: Flask-Login
 
-The app is called Club19
+
+The First Version of LMKook has almost completed its development cycle; stay tuned. 
