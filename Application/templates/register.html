@@ -18,7 +18,7 @@
             <h1 id="signin_h1">Create an Account</h1>
             
             <!-- Start of the form -->
-            <form action="{{ url_for('register') }}" method="post">
+            <form action="{{ url_for('auth.register') }}" method="post">
                 <div class="inputland inputland2">
                     <input type="text" name="full_name" id="full_name" placeholder="Full Name*" required>
                     <input type="email" name="email" id="email" placeholder="Email*" required>
@@ -35,7 +35,7 @@
             <!-- End of the form -->
             
             <div class="noacct_signup">
-                <a href="{{ url_for('login') }}">Already have an account? Log In</a>
+                <a href="{{ url_for('auth.login') }}">Already have an account? Log In</a>
             </div>
         </div>
     </div>
