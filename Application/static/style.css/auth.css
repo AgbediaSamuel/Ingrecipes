@@ -57,6 +57,7 @@ body {
     font-weight: 400;
     font-style: normal;
     width: 20rem;
+    margin-bottom: 1.5rem;
 }
 .inputland input::placeholder {
     font-size: 15px;
@@ -141,13 +142,55 @@ input:focus {
 .inputland2 {
     margin-top: 2rem;
 }
-/* input::placeholder::after {
-    content: '*';
-    color: red;
-    margin-left: 2px;
-} */
 input::placeholder::after {
     content: '*'; /* Insert asterisk */
     color: red; /* Make asterisk red */
     margin-left: 2px; /* Adjust spacing between placeholder text and asterisk */
+}
+
+/* New styles for landing page */
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    width: 100%;
+}
+
+.landing-page h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #82505c;
+}
+
+.landing-page p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.landing-buttons {
+    margin-top: 20px;
+}
+
+.landing-buttons .btn {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #82505c; /* Match login page button color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: "Fjalla One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.landing-buttons .btn:hover {
+    background-color: white;
+    color: #82505c;
 }

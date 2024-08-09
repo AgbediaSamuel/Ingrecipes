@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="welcome.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css/welcome.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Forum&family=Spline+Sans+Mono&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
         <div></div>
         <div class="container">
             <div class="logo">
-                <img src="inkpx-curved-text.png" alt="logo">
+                <img src="{{ url_for('static', filename='images/inkpx-curved-text.png') }}" alt="logo">
             </div>
             <div class="wel_msg">
                 <h1>Hi, Rachael!</h1>

@@ -1,43 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css/auth.css') }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Forum&family=Spline+Sans+Mono&display=swap" rel="stylesheet">
-    <script src="script.js"></script> 
+{% extends "base.html" %}
 
-    <title>Sign Up</title>
-</head>
-<body>
-    <div class="container">
-        <!-- ... Other div elements ... -->
-        <div class="login">
-            <h1 id="signin_h1">Create an Account</h1>
-            
-            <!-- Start of the form -->
-            <form action="{{ url_for('auth.register') }}" method="post">
-                <div class="inputland inputland2">
-                    <input type="text" name="full_name" id="full_name" placeholder="Full Name*" required>
-                    <input type="email" name="email" id="email" placeholder="Email*" required>
-                    <input type="tel" name="phone_number" id="phone_no" placeholder="Phone Number*">
-                    <input type="password" name="password" id="password" placeholder="Password*" required>
-                </div>
-                <div class="remme_forpass remme_forpass2">
-                    <div class="remme"><input type="checkbox" name="remember_me" id="remember_me"> Remember Me</div>
-                    <!-- Forgot Password Link (Make sure to implement this or remove if not needed) -->
-                </div>
-                <!-- The submit button -->
-                <button type="submit">SIGN UP</button>
-            </form>
-            <!-- End of the form -->
-            
-            <div class="noacct_signup">
-                <a href="{{ url_for('auth.login') }}">Already have an account? Log In</a>
-            </div>
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<div class="login">
+    <h1 id="signin_h1">Create an Account</h1>
+    
+    <!-- Start of the form -->
+    <form action="{{ url_for('auth.register') }}" method="post">
+        <div class="inputland inputland2">
+            <input type="text" name="first_name" id="first_name" placeholder="First Name" required>
+            <input type="text" name="last_name" id="last_name" placeholder="Last Name" required>
+            <input type="email" name="email" id="email" placeholder="Email" required>
+            <input type="password" name="password" id="password" placeholder="Password" required>
         </div>
+        <div class="remme_forpass remme_forpass2">
+            <div class="remme"><input type="checkbox" name="remember_me" id="remember_me"> Remember Me</div>
+            <!-- I'll add a forgot password link in the event that I implement the logic for that feature -->
+        </div>
+        <!-- The submit button -->
+        <button type="submit">SIGN UP</button>
+    </form>
+    <!-- End of the form -->
+    
+    <div class="noacct_signup">
+        <a href="{{ url_for('auth.login') }}">Already have an account? Log In</a>
     </div>
-</body>
-</html>
+</div>
+{% endblock %}

@@ -8,6 +8,15 @@ main = Blueprint('main', __name__)
 def index():
     return render_template('index.html')
 
+@main.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
+
+
+@main.route('/new_recipe')
+def new_recipe():
+    return render_template('new_recipe.html')
+
 @main.route('/saved_recipes')
 @login_required
 def saved_recipes():

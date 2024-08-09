@@ -22,7 +22,8 @@ def login():
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
-        full_name = request.form.get('full_name')
+        first_name = request.form.get('first_name')
+        last_name = request.form.get('last_name')
         email = request.form.get('email')
         password = request.form.get('password')
 
@@ -30,7 +31,7 @@ def register():
             flash('Email address already exists', 'error')
             return redirect(url_for('auth.register'))
 
-        new_user = User(full_name=full_name, email=email)
+        new_user = User(first_name=first_name, last_name=last_name, email=email)
         new_user.set_password(password)
         db.session.add(new_user)
         db.session.commit()

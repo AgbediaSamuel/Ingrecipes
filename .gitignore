@@ -1,0 +1,21 @@
+# Virtual Environment
+.venv/
+
+# Python Bytecode Files
+__pycache__/
+*.py[cod]
+
+# Environment Variables
+.env
+
+# SQLite Database
+instance/*.db
+
+# IDE/Editor Files
+.vscode/
+*.code-workspace
+
+# Logs and Temp Files
+*.log
+tmp/
+
