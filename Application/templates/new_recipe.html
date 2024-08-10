@@ -1,11 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Recipe</title>
-</head>
-<body>
-    <div></div>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Recipe Search{% endblock %}
+
+{% block content %}
+<div class="recipe-page-container">
+    <div class="recipe-page-content">
+        <h1 class="recipe-page-title">What’s cooking, good looking?</h1>
+        <p class="recipe-page-instructions">To start the chat, type in your ingredients. Be specific in naming the ingredients. You don’t have to include product brand names.</p>
+        <div class="recipe-input-container">
+            <input type="text" placeholder="Type your response here..." class="recipe-input-field">
+            <button type="submit" class="recipe-submit-btn">Send</button>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -3,32 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css/welcome.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Forum&family=Spline+Sans+Mono&display=swap" rel="stylesheet">
-
-    <title>Home</title>
+    <title>Dashboard</title>
 </head>
-<body>
-    <div class="main_container">
-        <div></div>
-        <div class="container">
-            <div class="logo">
-                <img src="{{ url_for('static', filename='images/inkpx-curved-text.png') }}" alt="logo">
-            </div>
-            <div class="wel_msg">
-                <h1>Hi, Rachael!</h1>
-            </div>
-            <div class="find_recipe">
-                <p><button>FIND A NEW RECIPE</button></p>
-            </div>
-            <div class="saved_recipe">
-                <p><button>VIEW SAVED RECIPES</button></p>
-            </div>
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/inkpx-curved-text.png') }}" alt="logo">
         </div>
-        <div></div>
+        <div class="welcome-message">
+            <h1>Hi, user!</h1>
+        </div>
+        <div class="dashboard-buttons">
+            <button class="btn-new-recipe">GET A NEW RECIPE</button>
+            <button class="btn-saved-recipes">SAVED RECIPES</button>
+        </div>
     </div>
 </body>
 </html>

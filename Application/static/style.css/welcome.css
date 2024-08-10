@@ -2,66 +2,194 @@
     padding: 0;
     margin: 0;
 }
-body{
-    background-image: url(IMG_8286.jpeg);
+body {
+    background-image: url('../images/body-background.jpg');
     background-size: cover;
 }
-.main_container {
-    display: flex;
-    width: 100%;
-    margin: 0 auto;
-    justify-content: space-between;
-}
 .container {
-    backdrop-filter: blur(10px);
-    width: 100vw;
+    display: flex;
+    border: 7px solid rgb(171, 110, 64);
+    border-radius: 50px;
+    justify-content: space-between;
+    width: 90%;
+    height: 88vh;
+    padding: 1rem;
+    margin: 0 auto;
+    margin-top: 1rem;
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.5);
+    font-family: "Fjalla One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    width: 100%;
+}
+
+.landing-page h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #82505c;
+}
+
+.landing-page p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.landing-buttons {
+    margin-top: 20px;
+}
+
+.landing-buttons .btn {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #82505c; 
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: "Fjalla One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.landing-buttons .btn:hover {
+    background-color: white;
+    color: #82505c;
+}
+
+
+.recipe-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 2rem;
+    border-radius: 20px;
+}
+
+.recipe-page-content {
+    text-align: center;
+    width: 60%;
+    padding: 2rem;
+}
+
+.recipe-page-title {
+    font-size: 3rem;
+    color: #82505c;
+    font-family: 'Fjalla One', sans-serif;
+    margin-bottom: 1.5rem;
+}
+
+.recipe-page-instructions {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.recipe-input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.recipe-input-field {
+    width: 80%;
+    padding: 10px;
+    border: 2px solid #82505c;
+    border-radius: 10px;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 1rem;
+}
+
+.recipe-submit-btn {
+    background-color: #82505c;
+    border: none;
+    padding: 10px;
+    margin-left: 1rem;
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.recipe-submit-btn:hover {
+    background-color: white;
+    color: #82505c;
+    border: 2px solid #82505c;
+}
+
+.recipe-submit-btn img {
+    height: 20px;
+    width: 20px;
+}
+
+
+.dashboard-body {
+    background-image: url('../images/IMG_8286.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     height: 100vh;
     text-align: center;
 }
-.wel_msg h1 {
-    font-size: 4rem;
-    font-family: "Fjalla One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    margin-top: 11rem;
-    color: #53202C;
-}
-p {
-    
-}
-p button {
-    text-decoration: none;
-    color: #82505C;
-    font-size: 1.7rem;
-    font-family: "Fjalla One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    text-align: center;
-    border: 2px solid white;
-    background-color: rgb(198, 176, 180);
-    padding-top: 1.7rem;
-    padding-bottom: 1.7rem;
-    width: 17rem;
-    border-radius: 40px;
-    cursor: pointer;
-    stroke: 3px solid black;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-}
-p button:hover {
-    color: rgb(198, 176, 180);
-    background-color: #82505C;
-}
-.find_recipe {
-    margin-top: 2rem;
-}
-.saved_recipe {
-    margin-top: 2rem;
-}
+
 .logo img {
     width: 8rem;
-    position: relative;
-    left: -40rem;
+    margin-bottom: 2rem;
 }
-.wel_msg {
-    margin-top: -10rem;
+
+.welcome-message h1 {
+    font-size: 4rem;
+    color: #53202C;
+    font-family: 'Fjalla One', sans-serif;
+    margin-bottom: 2rem;
+}
+
+.dashboard-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.dashboard-buttons .btn-new-recipe,
+.dashboard-buttons .btn-saved-recipes {
+    background-color: rgba(198, 176, 180, 0.9);
+    color: #82505C;
+    font-size: 1.7rem;
+    font-family: 'Fjalla One', sans-serif;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 40px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 6px;
+}
+
+.dashboard-buttons .btn-new-recipe:hover,
+.dashboard-buttons .btn-saved-recipes:hover {
+    background-color: #82505C;
+    color: #FFF;
 }

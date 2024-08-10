@@ -12,6 +12,9 @@ def index():
 def dashboard():
     return render_template('dashboard.html')
 
+@main.route('/base')
+def base():
+    return render_template('base.html')
 
 @main.route('/new_recipe')
 def new_recipe():
