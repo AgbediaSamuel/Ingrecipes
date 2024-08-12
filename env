@@ -1,0 +1,5 @@
+SECRET_KEY=sergsfarreyshasftabsisjbjkjs23456542
+SQLALCHEMY_DATABASE_URI=sqlite:///instance/users.db
+OPENAI_API_KEY=your_openai_api_key
+EDAMAM_APP_ID=f1a5dd2d
+EDAMAM_APP_KEY=0dcf536829d4970fa80eb768d3421628	
