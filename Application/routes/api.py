@@ -13,6 +13,8 @@ def preprocessing(user_input):
     to ensure it's suitable for the API request.
     """
     # Call the OpenAI model to clean and standardize the input
+    with current_app.app_context():
+        openai.api_key = current_app.config['OPENAI_API_KEY']
     response = openai.Completion.create(
         engine="gpt-3.5-turbo",
         prompt=f"Extract and standardize a list of ingredients from the following text: {user_input}. Make sure the list is in a format suitable for an API query.",
@@ -41,9 +43,10 @@ def process_ingredients():
 def get_recipes():
     ingredients = request.json.get('ingredients', [])
     ingredients_str = ', '.join(ingredients)
-    
-    app_id = current_app.config['EDAMAM_APP_ID']
-    app_key = current_app.config['EDAMAM_APP_KEY']
+
+    with current_app.app_context():
+        app_id = current_app.config['EDAMAM_APP_ID']
+        app_key = current_app.config['EDAMAM_APP_KEY']
     url = f"https://api.edamam.com/api/recipes/v2?type=public&q={ingredients_str}&app_id={app_id}&app_key={app_key}"
     
     try:
