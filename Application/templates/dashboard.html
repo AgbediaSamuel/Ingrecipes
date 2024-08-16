@@ -18,7 +18,10 @@
             <h1>Hi, user!</h1>
         </div>
         <div class="dashboard-buttons">
-            <button class="btn-new-recipe">GET A NEW RECIPE</button>
+            <a href="{{ url_for('main.new_recipe') }}">
+                <button class="btn-new-recipe">GET A NEW RECIPE</button>
+            </a>
+            
             <button class="btn-saved-recipes">SAVED RECIPES</button>
         </div>
     </div>

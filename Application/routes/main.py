@@ -12,11 +12,12 @@ def index():
 def dashboard():
     return render_template('dashboard.html')
 
-@main.route('/base') #just testing the pages
-def base():
-    return render_template('base.html')
+# @main.route('/base') #just testing the pages
+# def base():
+#     return render_template('base.html')
 
 @main.route('/new_recipe') #just testing the pages
+@login_required
 def new_recipe():
     return render_template('new_recipe.html')
 

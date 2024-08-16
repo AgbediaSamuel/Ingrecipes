@@ -193,3 +193,51 @@ body {
     background-color: #82505C;
     color: #FFF;
 }
+
+
+.recipe-results {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.recipe-item {
+    border: 2px solid #82505c;
+    border-radius: 10px;
+    padding: 1rem;
+    width: 80%;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 8px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.recipe-item h3 {
+    font-size: 1.5rem;
+    color: #82505c;
+    margin-bottom: 1rem;
+}
+
+.recipe-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.recipe-item a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #82505c;
+    border: 1px solid #82505c;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.recipe-item a:hover {
+    background-color: #82505c;
+    color: white;
+}

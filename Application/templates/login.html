@@ -8,11 +8,16 @@
 </div>
 <div class="login login2" id="login">
     <h1 id="login_h1">Welcome Back!</h1>
-    <div class="inputland">
-        <input type="email" name="email" id="email" placeholder="Email*">
-        <input type="password" name="password" id="" placeholder="Create Password*">
-    </div>
-    <button onclick="validate()">LOGIN</button>
+    <form action="{{ url_for('auth.login') }}" method="post">
+        {{ form.hidden_tag() }}
+        <div class="inputland">
+            {{ form.email.label }}  <!-- Email Label -->
+            {{ form.email(class="form-control") }}
+            {{ form.password.label }}  <!-- Password Label -->
+            {{ form.password(class="form-control") }}
+        </div>
+        <button type="submit" class="btn">LOGIN</button>
+    </form>
     <div class="noacct_signup">
         <a href="{{ url_for('auth.register') }}">Don't have an account? Sign up</a>
     </div>

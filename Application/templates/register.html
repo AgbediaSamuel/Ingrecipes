@@ -8,18 +8,19 @@
     
     <!-- Start of the form -->
     <form action="{{ url_for('auth.register') }}" method="post">
+        {{ form.hidden_tag() }}
         <div class="inputland inputland2">
-            <input type="text" name="first_name" id="first_name" placeholder="First Name" required>
-            <input type="text" name="last_name" id="last_name" placeholder="Last Name" required>
-            <input type="email" name="email" id="email" placeholder="Email" required>
-            <input type="password" name="password" id="password" placeholder="Password" required>
-        </div>
-        <div class="remme_forpass remme_forpass2">
-            <div class="remme"><input type="checkbox" name="remember_me" id="remember_me"> Remember Me</div>
-            <!-- I'll add a forgot password link in the event that I implement the logic for that feature -->
+            {{ form.first_name.label }}
+            {{ form.first_name(class="form-control") }}
+            {{ form.last_name.label }}
+            {{ form.last_name(class="form-control") }}
+            {{ form.email.label }}
+            {{ form.email(class="form-control") }}
+            {{ form.password.label }}
+            {{ form.password(class="form-control") }}
         </div>
         <!-- The submit button -->
-        <button type="submit">SIGN UP</button>
+        <button type="submit" class="btn btn-primary">SIGN UP</button>
     </form>
     <!-- End of the form -->
     
