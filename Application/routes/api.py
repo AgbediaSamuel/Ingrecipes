@@ -1,22 +1,19 @@
-from flask import Blueprint, request, jsonify, current_app
+from flask import Blueprint, request, jsonify, current_app, flash, redirect
 import openai
 import requests
 from Application import db
 from flask_login import login_required, current_user
-from ..models import SavedRecipe
+from ..models import saved_recipe
 
 api = Blueprint('api', __name__)
 main = Blueprint('main', __name__)
 
-def preprocessing(user_input):
-    """
-    This function uses an LLM to standardize and clean the user's input
-    to ensure it's suitable for the API request.
-    """
 
+# The function below standardizes natural langauge input
+def preprocessing(user_input):
     with current_app.app_context():
         openai.api_key=current_app.config['OPENAI_API_KEY']
-    # Call the OpenAI model to clean and standardize the input
+    # Calling a Large Language model to clean and standardize the input
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
@@ -31,6 +28,7 @@ def preprocessing(user_input):
     
     return ingredients
 
+# The function /api/process_ingredients below is not useful as get_recipes below has been updated to call preprocessing directly to eliminate redundancy here
 # @api.route('/process_ingredients', methods=['POST'])
 # def process_ingredients():
 #     user_input = request.json.get('ingredients', '')
@@ -40,10 +38,10 @@ def preprocessing(user_input):
 #     return jsonify(standardized_ingredients)
 
 @api.route('/get_recipes', methods=['POST'])
+@login_required
 def get_recipes():
     user_input = request.json.get('ingredients', '')
     
-    # Call the process_ingredients function to standardize the input
     standardized_ingredients = preprocessing(user_input)
     ingredients_str = ', '.join(standardized_ingredients)
     
@@ -75,18 +73,17 @@ def save_recipe():
     recipe_image = request.form.get('recipe_image')
     recipe_url = request.form.get('recipe_url')
     
-    existing_recipe = SavedRecipe.query.filter_by(user_id=current_user.id, recipe_url=recipe_url).first()
+    existing_recipe = saved_recipe.query.filter_by(user_id=current_user.id, recipe_url=recipe_url).first()
     if existing_recipe:
         flash('You have already saved this recipe.')
-        return redirect(url_for('main.index'))
+        return '', 204
 
-    new_saved_recipe = SavedRecipe(
+    new_saved_recipe = saved_recipe(
         user_id=current_user.id,
         recipe_title=recipe_title,
-        recipe_image=recipe_image,
         recipe_url=recipe_url
     )
     db.session.add(new_saved_recipe)
     db.session.commit()
     flash('Recipe saved successfully!')
-    return redirect(url_for('main.index'))
+    return '', 204

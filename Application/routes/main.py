@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 from flask_login import login_required, current_user
-from Application import db
+# from Application import db
 
 main = Blueprint('main', __name__)
 

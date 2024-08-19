@@ -15,5 +15,13 @@
 </div>
 
 <div class="recipe-results"></div>
+
+<form id="save-recipe-form" method="POST" action="{{ url_for('api.save_recipe') }}" style="display: none;">
+    <input type="hidden" name="recipe_title" id="recipe-title">
+    <input type="hidden" name="recipe_url" id="recipe-url">
+    <button type="submit" id="save-recipe-btn">Save Recipe</button>
+</form>
+
+
 <script src="{{ url_for('static', filename='js/new_recipe.js') }}"></script>
 {% endblock %}

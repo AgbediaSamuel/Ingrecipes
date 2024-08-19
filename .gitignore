@@ -1,21 +1,56 @@
-# Virtual Environment
-.venv/
-
-# Python Bytecode Files
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+*$py.class
 
-# Environment Variables
+# Virtual environment
+.venv/
+
+# Environment variables
 .env
 
-# SQLite Database
-instance/*.db
+# SQLite database files
+Application/instance/*.db
 
-# IDE/Editor Files
-.vscode/
-*.code-workspace
+# SQLAlchemy migration files
+migrations/
 
-# Logs and Temp Files
+# Python specific
+*.pyc
+*.pyo
+*.pyd
+*.swp
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Flask-specific
+instance/
 *.log
-tmp/
 
+# Backup files
+*.bak
+*.swp
+*~
+
+# Ignore database and instance
+Application/instance/users.db
+
+# Additional files
+.gitignore

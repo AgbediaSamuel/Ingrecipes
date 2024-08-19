@@ -15,7 +15,7 @@ def create_app():
     # Configuration
     basedir = os.path.abspath(os.path.dirname(__file__))
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'default_secret_key')
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI', f'sqlite:///{os.path.join(basedir, "instance", "users.db")}')
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY')
     app.config['EDAMAM_APP_ID'] = os.getenv('EDAMAM_APP_ID')
@@ -26,9 +26,10 @@ def create_app():
     login_manager.init_app(app)
     login_manager.login_view = 'auth.login'
 
-   # Create database tables
-    with app.app_context():
-        db.create_all()  # This creates all the tables in the database
+# The commented lines below were supposed to create the database tables if they didn't already exist
+# Since an external tool was used then it is not needed.
+#     with app.app_context():
+#         db.create_all() 
 
     # User loader callback for Flask-Login
     from .models import User
