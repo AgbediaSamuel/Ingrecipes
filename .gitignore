@@ -54,3 +54,4 @@ Application/instance/users.db
 
 # Additional files
 .gitignore
+apitests.py
