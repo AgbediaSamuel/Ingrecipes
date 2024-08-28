@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify, current_app, flash, redirect
 import openai
+import logging #this line is for testing
 import requests
 from Application import db
 from flask_login import login_required, current_user
@@ -38,7 +39,7 @@ def preprocessing(user_input):
 #     return jsonify(standardized_ingredients)
 
 @api.route('/get_recipes', methods=['POST'])
-@login_required
+# @login_required
 def get_recipes():
     user_input = request.json.get('ingredients', '')
     
@@ -64,6 +65,43 @@ def get_recipes():
     } for recipe in recipes.get('hits', [])]
 
     return jsonify(recipes_info)
+
+# def get_recipes():
+#     user_input = request.json.get('ingredients', '')
+#     logging.debug(f"User input: {user_input}")
+    
+#     standardized_ingredients = preprocessing(user_input)
+#     logging.debug(f"Standardized ingredients: {standardized_ingredients}")
+    
+#     ingredients_str = ', '.join(standardized_ingredients)
+#     logging.debug(f"Ingredients string: {ingredients_str}")
+    
+#     with current_app.app_context():
+#         app_id = current_app.config['EDAMAM_APP_ID']
+#         app_key = current_app.config['EDAMAM_APP_KEY']
+#         logging.debug(f"EDAMAM_APP_ID: {app_id}")
+#         logging.debug(f"EDAMAM_APP_KEY: {app_key}")
+    
+#     url = f"https://api.edamam.com/api/recipes/v2?type=public&q={ingredients_str}&app_id={app_id}&app_key={app_key}"
+#     logging.debug(f"Request URL: {url}")
+    
+#     try:
+#         response = requests.get(url)
+#         response.raise_for_status()
+#         recipes = response.json()
+#         logging.debug(f"API response: {recipes}")
+#     except requests.RequestException as e:
+#         logging.error(f"Failed to fetch recipes: {e}")
+#         return jsonify({'error': 'Failed to fetch recipes'}), 500
+
+#     recipes_info = [{
+#         'title': recipe['recipe']['label'],
+#         'image': recipe['recipe']['image'],
+#         'url': recipe['recipe']['url']
+#     } for recipe in recipes.get('hits', [])]
+
+#     logging.debug(f"Recipes info: {recipes_info}")
+#     return jsonify(recipes_info)
 
 
 @api.route('/save_recipe', methods=['POST'])

@@ -1,5 +1,5 @@
 # Byte-compiled / optimized / DLL files
-__pycache__/
+**/__pycache__/
 *.py[cod]
 *$py.class
 
@@ -10,7 +10,7 @@ __pycache__/
 .env
 
 # SQLite database files
-Application/instance/*.db
+Application/instance/*
 
 # SQLAlchemy migration files
 migrations/
@@ -55,3 +55,7 @@ Application/instance/users.db
 # Additional files
 .gitignore
 apitests.py
+
+
+temp.css
+temp.html
